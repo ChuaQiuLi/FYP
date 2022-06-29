@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FYP</string>
+
+    <!--to toggle the open close button of the navigation drawer-->
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="shortcut_short_label">Open list of keyword signs</string>
+
+</resources>

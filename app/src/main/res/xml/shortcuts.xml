@@ -1,0 +1,60 @@
+<?xml version ="1.0" encoding="utf-8"?>
+
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <capability android:name="actions.intent.OPEN_APP_FEATURE">
+        <intent
+            android:targetPackage="sg.edu.rp.c346.id20007649.fyp"
+            android:targetClass= "sg.edu.rp.c346.id20007649.fyp.KeywordSigns">
+            <parameter
+                android:name="feature"
+                android:key="featureParam"/>
+        </intent>
+
+    </capability>
+
+    <!-- Inline inventory for OPEN_APP_FEATURE -->
+    <shortcut
+
+        android:shortcutId="KEYWORD_SIGNS"
+        android:shortcutShortLabel="@string/shortcut_short_label">
+
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/keyword_signs" />
+        </capability-binding>
+
+    </shortcut>
+
+
+    <capability android:name="actions.intent.OPEN_APP_FEATURE">
+        <intent
+            android:targetPackage="sg.edu.rp.c346.id20007649.fyp"
+            android:targetClass= "sg.edu.rp.c346.id20007649.fyp.SpeechToText">
+            <parameter
+                android:name="feature"
+                android:key="featureParam"/>
+        </intent>
+
+    </capability>
+
+    <!-- Inline inventory for OPEN_APP_FEATURE -->
+    <shortcut
+
+        android:shortcutId="KEYWORD_SIGNS"
+        android:shortcutShortLabel="@string/shortcut_short_label">
+
+        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">
+            <parameter-binding
+                android:key="feature"
+                android:value="@array/speech_to_text" />
+
+        </capability-binding>
+
+    </shortcut>
+
+
+
+</shortcuts>
+

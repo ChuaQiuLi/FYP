@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+
+
+    <LinearLayout
+        android:id="@+id/side_index"
+        android:layout_width="28dip"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="50dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/A"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autoSizeTextType="uniform"
+            android:clickable="true"
+            android:onClick="quickScroll"
+            android:tag="A"
+            android:text="A"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/B"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="B"
+            android:text="B"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/C"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="C"
+            android:text="C"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+
+        <TextView
+            android:id="@+id/D"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="D"
+            android:text="D"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/E"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="E"
+            android:text="E"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/F"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="F"
+            android:text="F"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/G"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="G"
+            android:text="G"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/H"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="H"
+            android:text="H"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/I"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="I"
+            android:text="I"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/J"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="J"
+            android:text="J"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/K"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="K"
+            android:text="K"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/L"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="L"
+            android:text="L"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/M"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="M"
+            android:text="M"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/N"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="N"
+            android:text="N"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/O"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="O"
+            android:text="O"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/P"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="P"
+            android:text="P"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/Q"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:autoSizeTextType="uniform"
+            android:clickable="true"
+            android:onClick="quickScroll"
+            android:tag="Q"
+            android:text="Q"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <TextView
+            android:id="@+id/R"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="R"
+            android:text="R"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/S"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="S"
+            android:text="S"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/T"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="T"
+            android:text="T"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/U"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="U"
+            android:text="U"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/V"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="V"
+            android:text="V"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/W"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="W"
+            android:text="W"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/X"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="X"
+            android:text="X"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/Y"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="Y"
+            android:text="Y"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+        <TextView
+            android:id="@+id/Z"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:tag="Z"
+            android:text="Z"
+            android:autoSizeTextType="uniform"
+            android:onClick="quickScroll"
+            android:clickable="true"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

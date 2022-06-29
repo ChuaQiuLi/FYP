@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="keyword_signs">
+        <item>Keyword Sign</item>
+        <item>List of keyword sign</item>
+        <item>Hand sign</item>
+        <item>List of hand sign</item>
+    </string-array>
+
+
+    <string-array name="speech_to_text">
+        <item>Speech to text</item>
+        <item>Text to speech</item>
+        <item>Convert speech to text</item>
+        <item>Convert text to speech</item>
+        <item>Read text</item>
+        <item>Convert speech</item>
+
+    </string-array>
+
+
+</resources>
