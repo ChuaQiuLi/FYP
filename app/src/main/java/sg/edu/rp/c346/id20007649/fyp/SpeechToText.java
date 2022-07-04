@@ -164,6 +164,26 @@ public class SpeechToText extends AppCompatActivity {
 
                 }
 
+                else if (id == R.id.share){
+
+                    try {
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Keyword sign");
+                        String shareMessage= "\nLet me recommend you this application\n\n";
+                        shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                        startActivity(Intent.createChooser(shareIntent, "Choose one"));
+
+                    }
+
+                    catch(Exception e) {
+
+                        Toast.makeText(SpeechToText.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
 
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.my_drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);

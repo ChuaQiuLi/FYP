@@ -23,9 +23,6 @@
             android:name=".Favourite"
             android:exported="false" />
         <activity
-            android:name=".Information2"
-            android:exported="false" />
-        <activity
             android:name=".SpeechToText"
             android:exported="true">
 

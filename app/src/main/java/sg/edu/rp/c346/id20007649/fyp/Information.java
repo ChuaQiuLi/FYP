@@ -22,6 +22,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 public class Information extends AppCompatActivity {
@@ -32,6 +33,10 @@ public class Information extends AppCompatActivity {
     Video data;
     MediaController mediaController;
     ImageButton favBtn;
+    FloatingActionButton fabSetting;
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
 
 
 
@@ -46,6 +51,21 @@ public class Information extends AppCompatActivity {
         tvDescription = findViewById(R.id.description);
         videos = findViewById(R.id.video);
         favBtn = findViewById(R.id.btn);
+        fabSetting = findViewById(R.id.settingBtn);
+
+
+        // drawer layout instance to toggle the menu icon to open
+        // drawer and back button to close drawer
+        drawerLayout = findViewById(R.id.my_drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        // to make the Navigation drawer icon always appear on the action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
 
@@ -72,33 +92,6 @@ public class Information extends AppCompatActivity {
 
 
 
-
-
-//        shareBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Uri contentUri = getContentUri();
-//
-//                String name = tvDescription.getText().toString();
-//                Uri uri = Uri.parse(data.getVideo());
-//
-//
-//                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//                shareIntent.setType("video/*");
-//                shareIntent.setType("text/plain");
-//                shareIntent.putExtra(Intent.EXTRA_TEXT, name);
-//                shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
-//                shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
-//                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//                startActivity(Intent.createChooser(shareIntent, "Share Via"));
-//
-//
-//            }
-//        });
-
-
-
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +115,54 @@ public class Information extends AppCompatActivity {
 
 
                 }
+
+            }
+        });
+
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id = item.getItemId();
+
+                if(id == R.id.nav_favourite) {
+
+                    startActivity(new Intent(Information.this, Favourite.class));
+
+                }
+
+                else if (id == R.id.nav_home){
+
+                    startActivity(new Intent(Information.this, MainActivity.class));
+                }
+
+                else if (id == R.id.nav_game_quiz){
+
+                    startActivity(new Intent(Information.this, Quiz.class));
+                }
+
+                else if (id == R.id.nav_list_of_words){
+
+                    startActivity(new Intent(Information.this, KeywordSigns.class));
+
+                }
+
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.my_drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+
+                return true;
+
+            }
+
+        });
+
+        fabSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Information.this, Setting.class));
 
             }
         });

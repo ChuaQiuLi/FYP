@@ -20,5 +20,10 @@
         android:title="Game Quiz" />
 
 
+    <item
+        android:id="@+id/share"
+        android:title="Share application" />
+
+
 
 </menu>
