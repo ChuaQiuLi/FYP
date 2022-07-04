@@ -1,4 +1,4 @@
-package sg.edu.rp.c346.id20007649.fyp;
+package sg.minds.keyword.signs;
 
 import org.junit.Test;
 

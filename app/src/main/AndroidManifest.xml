@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="sg.edu.rp.c346.id20007649.fyp">
+    package="sg.minds.keyword.signs">
 
 
     <application
@@ -11,19 +11,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FYP">
         <activity
-            android:name=".Setting"
+            android:name="sg.minds.keyword.signs.Setting"
             android:exported="false" />
         <activity
-            android:name=".SpeechToTextInfo"
+            android:name="sg.minds.keyword.signs.SpeechToTextInfo"
             android:exported="false" />
         <activity
-            android:name=".Quiz"
+            android:name="sg.minds.keyword.signs.Quiz"
             android:exported="false" />
         <activity
-            android:name=".Favourite"
+            android:name="sg.minds.keyword.signs.Favourite"
             android:exported="false" />
         <activity
-            android:name=".SpeechToText"
+            android:name="sg.minds.keyword.signs.SpeechToText"
             android:exported="true">
 
         <meta-data
@@ -33,10 +33,10 @@
         </activity>
 
         <activity
-            android:name=".Information"
+            android:name="sg.minds.keyword.signs.Information"
             android:exported="false" />
         <activity
-            android:name=".KeywordSigns"
+            android:name="sg.minds.keyword.signs.KeywordSigns"
             android:exported="true">
 
             <meta-data
@@ -46,7 +46,7 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name="sg.minds.keyword.signs.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

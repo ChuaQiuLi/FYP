@@ -4,9 +4,10 @@ plugins {
 
 android {
     compileSdk 31
+    namespace "sg.minds.keyword.signs"
 
     defaultConfig {
-        applicationId "sg.edu.rp.c346.id20007649.fyp"
+        applicationId "sg.minds.keyword.signs"
         minSdk 26
         targetSdk 31
         versionCode 1

@@ -1,9 +1,11 @@
-package sg.edu.rp.c346.id20007649.fyp;
+package sg.minds.keyword.signs;
 
 import android.widget.Filter;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import sg.minds.keyword.signs.CustomAdapter;
+import sg.minds.keyword.signs.Video;
 
 public class CustomFilter extends Filter {
 
