@@ -20,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -29,6 +30,10 @@ public class Favourite extends AppCompatActivity {
     RecyclerView favList;
     public FavAdapter favAdapter;
     public ArrayList<Video> fl;
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+    FloatingActionButton fabSetting;
 
 
 
@@ -40,7 +45,22 @@ public class Favourite extends AppCompatActivity {
 
         fl = new ArrayList<Video>();
         favList = findViewById(R.id.favList);
+        fabSetting = findViewById(R.id.settingBtn);
+        navigationView = findViewById(R.id.hamburgerMenu);
 
+
+        // drawer layout instance to toggle the menu icon to open
+        // drawer and back button to close drawer
+        drawerLayout = findViewById(R.id.my_drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        // to make the Navigation drawer icon always appear on the action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         FavDB favDB = new FavDB(Favourite.this);
@@ -51,6 +71,73 @@ public class Favourite extends AppCompatActivity {
 
 
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id = item.getItemId();
+
+                if(id == R.id.nav_favourite) {
+
+                    startActivity(new Intent(Favourite.this, Favourite.class));
+
+                }
+
+                else if (id == R.id.nav_home){
+
+                    startActivity(new Intent(Favourite.this, MainActivity.class));
+                }
+
+                else if (id == R.id.nav_game_quiz){
+
+                    startActivity(new Intent(Favourite.this, Quiz.class));
+                }
+
+                else if (id == R.id.nav_list_of_words){
+
+                    startActivity(new Intent(Favourite.this, KeywordSigns.class));
+
+                }
+
+
+                else if (id == R.id.share){
+
+                    try {
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+//                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Keyword sign");
+                        String shareMessage= "\nLet me recommend you this keyword sign application to you!\n\n";
+                        shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                        startActivity(Intent.createChooser(shareIntent, "Choose one"));
+
+                    }
+
+                    catch(Exception e) {
+
+                        Toast.makeText(Favourite.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.my_drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+
+                return true;
+
+            }
+        });
+
+
+        fabSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(Favourite.this, Setting.class));
+
+            }
+        });
 
 
     }
@@ -97,6 +184,24 @@ public class Favourite extends AppCompatActivity {
 
         return true;
 
+
+    }
+
+
+    // override the onOptionsItemSelected()
+    // function to implement
+    // the item click listener callback
+    // to open and close the navigation
+    // drawer when the icon is clicked
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 

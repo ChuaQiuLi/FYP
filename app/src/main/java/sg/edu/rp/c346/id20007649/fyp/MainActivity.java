@@ -132,8 +132,8 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         Intent shareIntent = new Intent(Intent.ACTION_SEND);
                         shareIntent.setType("text/plain");
-                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Keyword sign");
-                        String shareMessage= "\nLet me recommend you this application\n\n";
+//                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Keyword sign");
+                        String shareMessage= "\nLet me recommend you this keyword sign application to you!\n\n";
                         shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
                         shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                         startActivity(Intent.createChooser(shareIntent, "Choose one"));
@@ -167,6 +167,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+    }
+
+
+    // override the onOptionsItemSelected()
+    // function to implement
+    // the item click listener callback
+    // to open and close the navigation
+    // drawer when the icon is clicked
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
 
     }
 

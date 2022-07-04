@@ -1,24 +1,44 @@
 package sg.edu.rp.c346.id20007649.fyp;
 
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+
+import java.security.Key;
 import java.util.ArrayList;
+import java.util.List;
 
-public class KeywordSigns extends AppCompatActivity  {
+public class KeywordSigns extends AppCompatActivity {
 
     CustomAdapter adapter;
     ArrayList<Video> vl;
     RecyclerView lv;
-
+    public DrawerLayout drawerLayout;
+    public ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+    FloatingActionButton fabSetting;
 
 
     @Override
@@ -28,19 +48,37 @@ public class KeywordSigns extends AppCompatActivity  {
 
 
         lv = findViewById(R.id.lv);
+
         vl = new ArrayList<Video>();
 
         lv.setLayoutManager(new LinearLayoutManager(KeywordSigns.this));
         adapter = new CustomAdapter(this, vl);
         lv.setAdapter(adapter);
 
+        navigationView = findViewById(R.id.hamburgerMenu);
+        fabSetting = findViewById(R.id.settingBtn);
 
-        String alright = "android.resource://sg.edu.rp.c346.id20007649.fyp/" + R.raw.alright_okay;
-        String greetings = "android.resource://sg.edu.rp.c346.id20007649.fyp/" + R.raw.how_are_you;
-        String please = "android.resource://sg.edu.rp.c346.id20007649.fyp/" + R.raw.please;
-        String sorry = "android.resource://sg.edu.rp.c346.id20007649.fyp/" + R.raw.sorry;
-        String thankyou = "android.resource://sg.edu.rp.c346.id20007649.fyp/" + R.raw.thank_you;
-//        String play = "android.resource://sg.edu.rp.c346.id20007649.fyp/" + R.raw.play;
+
+        // drawer layout instance to toggle the menu icon to open
+        // drawer and back button to close drawer
+        drawerLayout = findViewById(R.id.my_drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
+
+        // pass the Open and Close toggle for the drawer layout listener
+        // to toggle the button
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+
+        // to make the Navigation drawer icon always appear on the action bar
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        String alright = "android.resource://sg.edu.rp.c346.id20007998.speech2sign_fyp/" + R.raw.alright_okay;
+        String greetings = "android.resource://sg.edu.rp.c346.id20007998.speech2sign_fyp/" + R.raw.how_are_you;
+        String please = "android.resource://sg.edu.rp.c346.id20007998.speech2sign_fyp/" + R.raw.please;
+        String sorry = "android.resource://sg.edu.rp.c346.id20007998.speech2sign_fyp/" + R.raw.sorry;
+        String thankyou = "android.resource://sg.edu.rp.c346.id20007998.speech2sign_fyp/" + R.raw.thank_you;
+//        String play = "android.resource://sg.edu.rp.c346.id20007998.speech2sign_fyp/" + R.raw.play;
 
 
         Video one = new Video(1, "Alright", alright , "Fingertips of thumb and index finger of opened palm to touch together into a circle.");
@@ -60,11 +98,96 @@ public class KeywordSigns extends AppCompatActivity  {
 //        quickScroll();
 
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                int id = item.getItemId();
+
+                if(id == R.id.nav_favourite) {
+
+                    startActivity(new Intent(KeywordSigns.this, Favourite.class));
+
+                }
+
+                else if (id == R.id.nav_home){
+
+                    startActivity(new Intent(KeywordSigns.this, MainActivity.class));
+                }
+
+                else if (id == R.id.nav_game_quiz){
+
+                    startActivity(new Intent(KeywordSigns.this, Quiz.class));
+                }
+
+                else if (id == R.id.nav_list_of_words){
+
+                    startActivity(new Intent(KeywordSigns.this, KeywordSigns.class));
+
+                }
+
+
+                else if (id == R.id.share){
+
+                    try {
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+//                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Keyword sign");
+                        String shareMessage= "\nLet me recommend you this application keyword sign application to you.\n\n";
+                        shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                        startActivity(Intent.createChooser(shareIntent, "Choose one"));
+
+                    }
+
+                    catch(Exception e) {
+
+                        Toast.makeText(KeywordSigns.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.my_drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+
+                return true;
+
+            }
+        });
+
+
+        fabSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(KeywordSigns.this, Setting.class));
+
+            }
+        });
 
 
     }
 
-        @Override
+
+    // override the onOptionsItemSelected()
+    // function to implement
+    // the item click listener callback
+    // to open and close the navigation
+    // drawer when the icon is clicked
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // below line is to get our inflater
         MenuInflater inflater = getMenuInflater();
@@ -105,10 +228,12 @@ public class KeywordSigns extends AppCompatActivity  {
 
         });
 
+
         return true;
 
 
     }
+}
 
 
 //    private void quickScroll() {
@@ -127,27 +252,3 @@ public class KeywordSigns extends AppCompatActivity  {
 //        lv.setSelectionFromTop(index, 0);
 //
 //    }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

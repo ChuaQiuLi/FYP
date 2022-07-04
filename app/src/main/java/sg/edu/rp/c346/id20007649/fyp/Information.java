@@ -52,6 +52,7 @@ public class Information extends AppCompatActivity {
         videos = findViewById(R.id.video);
         favBtn = findViewById(R.id.btn);
         fabSetting = findViewById(R.id.settingBtn);
+        navigationView = findViewById(R.id.hamburgerMenu);
 
 
         // drawer layout instance to toggle the menu icon to open
@@ -149,6 +150,27 @@ public class Information extends AppCompatActivity {
                 }
 
 
+                else if (id == R.id.share){
+
+                    try {
+                        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                        shareIntent.setType("text/plain");
+//                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Keyword sign");
+                        String shareMessage= "\nLet me recommend you this application keyword sign application to you.\n\n";
+                        shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                        shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+                        startActivity(Intent.createChooser(shareIntent, "Choose one"));
+
+                    }
+
+                    catch(Exception e) {
+
+                        Toast.makeText(Information.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+
+
                 DrawerLayout drawer = (DrawerLayout) findViewById(R.id.my_drawer_layout);
                 drawer.closeDrawer(GravityCompat.START);
 
@@ -184,6 +206,24 @@ public class Information extends AppCompatActivity {
         }
 
         return false;
+    }
+
+
+    // override the onOptionsItemSelected()
+    // function to implement
+    // the item click listener callback
+    // to open and close the navigation
+    // drawer when the icon is clicked
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+
     }
 
 
