@@ -75,7 +75,7 @@
                 app:srcCompat="@drawable/ic_baseline_record_voice_over_24" />
 
             <ImageButton
-                android:id="@+id/btn"
+                android:id="@+id/favBtn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="right|end"

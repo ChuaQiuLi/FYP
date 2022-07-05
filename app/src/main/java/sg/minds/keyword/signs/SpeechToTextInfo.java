@@ -51,7 +51,7 @@ public class SpeechToTextInfo extends AppCompatActivity {
 
         tvDescription = findViewById(R.id.description);
         videos = findViewById(R.id.video);
-        favBtn = findViewById(R.id.btn);
+        favBtn = findViewById(R.id.favBtn);
         speechToTextBtn = findViewById(R.id.speechToTextBtn);
         tvSpeechToText = findViewById(R.id.tvSpeechToText);
         textToSpeechBtn = findViewById(R.id.textToSpeechBtn);

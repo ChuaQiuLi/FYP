@@ -30,11 +30,12 @@ public class Information extends AppCompatActivity {
     VideoView videos;
     Video data;
     MediaController mediaController;
-    ImageButton favBtn;
+    ImageButton favBtn, shareBtn;
     FloatingActionButton fabSetting;
     public DrawerLayout drawerLayout;
     public ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
+    TextView tvName;
 
 
 
@@ -48,8 +49,10 @@ public class Information extends AppCompatActivity {
 
         tvDescription = findViewById(R.id.description);
         videos = findViewById(R.id.video);
-        favBtn = findViewById(R.id.btn);
+        favBtn = findViewById(R.id.favBtn);
+        shareBtn = findViewById(R.id.shareBtn);
         fabSetting = findViewById(R.id.settingBtn);
+        tvName = findViewById(R.id.tvName);
         navigationView = findViewById(R.id.hamburgerMenu);
 
 
@@ -75,6 +78,7 @@ public class Information extends AppCompatActivity {
 
         Uri uri = Uri.parse(data.getVideo());
         tvDescription.setText(data.getDescription());
+        tvName.setText(data.getName());
 
 
         videos.setVideoURI(uri);
@@ -90,6 +94,19 @@ public class Information extends AppCompatActivity {
         }
 
 
+        shareBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Take a look at " + tvName + " keyword sign!" );
+                startActivity(Intent.createChooser(shareIntent, "Send To"));
+
+            }
+        });
+
+
 
         favBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,11 +117,9 @@ public class Information extends AppCompatActivity {
                 long result = favDB.insertFav(data.getName(), data.getVideo(), data.getDescription());
 
 
-
                 if (result != -1) {
                     Toast.makeText(Information.this, "Favourite saved", Toast.LENGTH_SHORT).show();
                     favBtn.setImageResource(R.drawable.ic_favorite_red_24dp);
-
 
                 }
 
