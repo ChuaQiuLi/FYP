@@ -26,15 +26,23 @@
             android:name="sg.minds.keyword.signs.SpeechToText"
             android:exported="true">
 
-        <meta-data
-            android:name="android.app.shortcuts"
-            android:resource="@xml/shortcuts" />
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
 
         </activity>
 
         <activity
             android:name="sg.minds.keyword.signs.Information"
-            android:exported="false" />
+            android:exported="true">
+
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+            </intent-filter>
+
+        </activity>
+
         <activity
             android:name="sg.minds.keyword.signs.KeywordSigns"
             android:exported="true">
@@ -51,6 +59,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.BROWSABLE"/>
 
             </intent-filter>
 

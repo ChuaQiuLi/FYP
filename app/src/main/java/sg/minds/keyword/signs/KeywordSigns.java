@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -74,11 +75,11 @@ public class KeywordSigns extends AppCompatActivity {
 //        String play = "android.resource://sg.minds.keyword.signs/" + R.raw.play;
 
 
-        Video one = new Video(1, "Alright", alright , "Fingertips of thumb and index finger of opened palm to touch together into a circle.");
-        Video two = new Video(2, "Greetings - How Are You", greetings,  "How: Knuckles of palm-down bent hand touching, roll hands from inward to outward ending palm-up. \n You: Extended thumb on fist points at person addressed (culturally appropriate).");
+        Video one = new Video(1, "Alright", alright, "Fingertips of thumb and index finger of opened palm to touch together into a circle.");
+        Video two = new Video(2, "Greetings - How Are You", greetings, "How: Knuckles of palm-down bent hand touching, roll hands from inward to outward ending palm-up. \n You: Extended thumb on fist points at person addressed (culturally appropriate).");
         Video three = new Video(3, "Please", please, "Palm rubs on chest in circle.");
-        Video four = new Video(4, "Sorry", sorry,  "Place closed fist, with thumb at side and move on chest in a circular motion.");
-        Video five = new Video(5, "Thank you",  thankyou,"Move fingertips of open dominant hand, forward from chin.");
+        Video four = new Video(4, "Sorry", sorry, "Place closed fist, with thumb at side and move on chest in a circular motion.");
+        Video five = new Video(5, "Thank you", thankyou, "Move fingertips of open dominant hand, forward from chin.");
 //        Video six = new Video(6, "Play", play, "Play hand sign");
 
         vl.add(one);
@@ -97,45 +98,34 @@ public class KeywordSigns extends AppCompatActivity {
 
                 int id = item.getItemId();
 
-                if(id == R.id.nav_favourite) {
+                if (id == R.id.nav_favourite) {
 
                     startActivity(new Intent(KeywordSigns.this, Favourite.class));
 
-                }
-
-                else if (id == R.id.nav_home){
+                } else if (id == R.id.nav_home) {
 
                     startActivity(new Intent(KeywordSigns.this, MainActivity.class));
-                }
-
-                else if (id == R.id.nav_game_quiz){
+                } else if (id == R.id.nav_game_quiz) {
 
                     startActivity(new Intent(KeywordSigns.this, Quiz.class));
-                }
-
-                else if (id == R.id.nav_list_of_words){
+                } else if (id == R.id.nav_list_of_words) {
 
                     startActivity(new Intent(KeywordSigns.this, KeywordSigns.class));
 
-                }
-
-
-                else if (id == R.id.share){
+                } else if (id == R.id.share) {
 
                     try {
                         Intent shareIntent = new Intent(Intent.ACTION_SEND);
                         shareIntent.setType("text/plain");
 //                        shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Keyword sign");
-                        String shareMessage= "\nLet me recommend you this application keyword sign application to you.\n\n";
-                        shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+                        String shareMessage = "\nLet me recommend you this application keyword sign application to you.\n\n";
+                        shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID + "\n\n";
                         shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
                         startActivity(Intent.createChooser(shareIntent, "Choose one"));
 
-                    }
+                    } catch (Exception e) {
 
-                    catch(Exception e) {
-
-                        Toast.makeText(KeywordSigns.this,""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(KeywordSigns.this, "" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -158,6 +148,8 @@ public class KeywordSigns extends AppCompatActivity {
 
             }
         });
+
+
 
 
     }
