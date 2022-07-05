@@ -102,17 +102,27 @@ public class KeywordSigns extends AppCompatActivity {
 
                     startActivity(new Intent(KeywordSigns.this, Favourite.class));
 
-                } else if (id == R.id.nav_home) {
+                }
+
+                else if (id == R.id.nav_home) {
 
                     startActivity(new Intent(KeywordSigns.this, MainActivity.class));
-                } else if (id == R.id.nav_game_quiz) {
+
+                }
+
+                else if (id == R.id.nav_game_quiz) {
 
                     startActivity(new Intent(KeywordSigns.this, Quiz.class));
-                } else if (id == R.id.nav_list_of_words) {
+
+                }
+
+                else if (id == R.id.nav_list_of_words) {
 
                     startActivity(new Intent(KeywordSigns.this, KeywordSigns.class));
 
-                } else if (id == R.id.share) {
+                }
+
+                else if (id == R.id.share) {
 
                     try {
                         Intent shareIntent = new Intent(Intent.ACTION_SEND);
